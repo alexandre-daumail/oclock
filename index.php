@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JS script link -->
@@ -30,7 +30,9 @@
             </ul>
         </nav>
     </header>
-    <div class="clock" id="myClock"></div>
+    <div class="watch">
+        <div class="time" id="myClock"></div>
+    </div>
 </body>
 
 </html>

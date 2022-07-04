@@ -34,17 +34,6 @@ ul {
     padding: 0;
   }
 
-.clock {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: turquoise;
-    font-size: 60px;
-    font-family: Orbitron;
-    letter-spacing: 7px;
-    transform: translate(-50%) translateY(-50%);
-}
-
 :root {
 	--primary: #DC143C;
 	--dark: #1F2937;
@@ -52,11 +41,11 @@ ul {
 	--light: #F3F4F6;
 }
 
-* {
+/* * {
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Fira sans', sans-serif;
-}
+} */
 
 body {
 	background-color: var(--dark);
