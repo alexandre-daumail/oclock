@@ -31,7 +31,8 @@
         </nav>
     </header>
     <main>
-        <div class="wrapper" id="wrapper">
+        <div class="wrapper">
+            
             <div class="display">
                 <p class="timerDisplay" id="timerHrs">00</p> :
                 <p class="timerDisplay" id="timerMins">00</p> :
