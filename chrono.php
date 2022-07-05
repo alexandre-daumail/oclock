@@ -26,20 +26,33 @@
                 <li><a href="index.php">Horloge</a></li>
                 <li><a href="minuteur.php">Minuteur</a></li>
                 <li><a href="reveil.php">Réveil</a></li>
-                <li><a class="active"href="#">Chronomètre</a></li>
+                <li><a class="active" href="#">Chronomètre</a></li>
             </ul>
         </nav>
     </header>
-    <div class="watch">
-		<div class="time">
-			00:00:00
-		</div>
-		<div class="controls">
-			<button id="start">Start</button>
-			<button id="stop">Stop</button>
-			<button id="reset">Reset</button>
-		</div>
-	</div>
+    <main>
+        <div class="wrapper" id="wrapper">
+            <div class="display">
+                <p class="timerDisplay" id="timerHrs">00</p> :
+                <p class="timerDisplay" id="timerMins">00</p> :
+                <p class="timerDisplay" id="timerSec">00</p> :
+                <p class="timerDisplay" id="timerMilisec">00</p>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="startBtn">Start</button>
+                <button type="button" id="resetBtn">Reset</button>
+                <button type="button" id="lapBtn">Lap</button>
+            </div>
+
+            <h1>Laps:</h1>
+
+            <div id="laps">
+                <p id="lapRecord"></p>
+            </div>
+        </div>
+
+    </main>
 </body>
 
 </html>

@@ -2,52 +2,103 @@
 
 document.addEventListener("DOMContentLoaded", event => {
 
-    // Global variables
-    const time_el = document.querySelector('.watch .time');
-    const start_btn = document.getElementById('start');
-    const stop_btn = document.getElementById("stop");
-    const reset_btn = document.getElementById("reset");
+const lapBtn = document.getElementById('lapBtn');
+const timerMilliSec = document.getElementById('timerMilliSec');
+const timerSec = document.getElementById('timerSec');
+const timerMins = document.getElementById('timerMins');
+const timerHrs = document.getElementById('timerHrs');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const lapRecord = document.getElementById('lapRecord');
 
-    let seconds = 0;
-    let interval = null;
+let hours = 0;
+let minutes = 0;
+let seconds = 0;
+let miliseconds = 0;
 
-    // Event listeners
-    start_btn.addEventListener('click', start);
-    stop_btn.addEventListener("click", stop);
-    reset_btn.addEventListener("click", reset);
+let displayMilisec = miliseconds;
+let displaySec = seconds;
+let displayMins = minutes;
+let displayHours = hours;
 
-    // Update the timer
-    function timer() {
-        seconds++;
+let interval = null;
 
-        // Format our time
-        let hrs = Math.floor(seconds / 3600);
-        let mins = Math.floor((seconds - (hrs * 3600)) / 60);
-        let secs = seconds % 60;
+let status = "stopped";
 
-        if (secs < 10) secs = '0' + secs;
-        if (mins < 10) mins = "0" + mins;
-        if (hrs < 10) hrs = "0" + hrs;
+let lapNow = null;
 
-        time_el.innerText = `${hrs}:${mins}:${secs}`;
+function start() {
+  miliseconds++;
+
+  if (miliseconds < 10) displayMilisec = "0" + miliseconds.toString();
+  else displayMilisec = miliseconds;
+
+  if (seconds < 10) displaySec = "0" + seconds.toString();
+  else displaySec = seconds;
+
+  if (minutes < 10) displayMins = "0" + minutes.toString();
+  else displayMins = minutes;
+
+  if (hours < 10) displayHours = "0" + hours.toString();
+  else displayHours = hours;
+
+  if (miliseconds / 100 === 1) {
+    seconds++;
+    miliseconds = 0;
+
+    if (seconds / 60 === 1) {
+      minutes++;
+      seconds = 0;
+
+      if (minutes / 60 === 1) {
+        hours++;
+        minutes = 0;
+      }
     }
+  }
 
-    function start() {
-        if (interval) {
-            return
-        }
 
-        interval = setInterval(timer, 1000);
-    }
 
-    function stop() {
-        clearInterval(interval);
-        interval = null;
-    }
+  timerMilisec.innerHTML = displayMilisec;
+  timerSec.innerHTML = displaySec;
+  timerMins.innerHTML = displayMins;
+  timerHrs.innerHTML = displayHours;
 
-    function reset() {
-        stop();
-        seconds = 0;
-        time_el.innerText = '00:00:00';
-    }
+}
+
+function startStop() {
+  if (status === "stopped") {
+    interval = setInterval(start, 10);
+    startBtn.innerHTML = "Stop";
+    status = "started";
+  } else {
+    clearInterval(interval);
+    startBtn.innerHTML = "Start";
+    status = "stopped";
+  }
+}
+
+function reset() {
+  clearInterval(interval);
+  miliseconds = 0;
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+  timerMilisec.innerHTML = "00";
+  timerSec.innerHTML = "00";
+  timerMins.innerHTML = "00";
+  timerHrs.innerHTML = "00";
+  startBtn.innerHTML = "Start";
+  lapRecord.innerHTML = '';
+  status = "stopped";
+}
+
+function lap() {
+  lapNow = `<div class="lap">${hours} : ${minutes} : ${seconds} : ${miliseconds}</div>`;
+  lapRecord.innerHTML += lapNow;
+}
+
+lapBtn.addEventListener('click', lap);
+startBtn.addEventListener('click', startStop);
+resetBtn.addEventListener('click', reset);
 });
