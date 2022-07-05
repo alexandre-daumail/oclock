@@ -2,31 +2,31 @@
 
 document.addEventListener("DOMContentLoaded", event => {
 
-function viewTime(){
+    var deadline = new Date("dec 31, 2023 15:37:25").getTime();
 
-    let date = new Date ();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-
-    if(hours == 0){
-        hours = 12;
-    }    
-
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-    let time = hours + ":" + minutes + ":" + seconds;
+    var x = setInterval(even => {
     
-    document.getElementById("myClock").innerText = time;
-    console.log(time);
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
 
-    // document.getElementById("myClock").textContent = time;
+    document.getElementById("day").innerHTML =days ;
+    document.getElementById("hour").innerHTML =hours;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("second").innerHTML =seconds;
 
-    setTimeout(viewTime, 1000);
+    if (t < 0) {
 
-}
+        clearInterval(x);
+        document.getElementById("alert").innerHTML = "le temps est écoulé";
+        document.getElementById("day").innerHTML ='0';
+        document.getElementById("hour").innerHTML ='0';
+        document.getElementById("minute").innerHTML ='0' ;
+        document.getElementById("second").innerHTML = '0'; 
 
-viewTime();
+    }
+    }, 1000);
 });

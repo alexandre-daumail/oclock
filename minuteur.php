@@ -20,6 +20,7 @@
 </head>
 
 <body>
+
     <header>
         <nav>
             <ul>
@@ -30,7 +31,32 @@
             </ul>
         </nav>
     </header>
-    <div class="clock" id="myClock"></div>
+
+    <main>
+        <h1>Minuteur</h1>
+
+        <div id="clockdiv">
+            <div>
+                <span class="days" id="day"></span>
+                <div class="smalltext">Days</div>
+            </div>
+            <div>
+                <span class="hours" id="hour"></span>
+                <div class="smalltext">Hours</div>
+            </div>
+            <div>
+                <span class="minutes" id="minute"></span>
+                <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+                <span class="seconds" id="second"></span>
+                <div class="smalltext">Seconds</div>
+            </div>
+        </div>
+
+        <p id="alert"></p>
+    </main>
+
 </body>
 
 </html>
