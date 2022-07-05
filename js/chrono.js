@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", event => {
             status = "started";
         } else {
             clearInterval(interval);
-            startBtn.innerHTML = "Start";
+            startBtn.innerHTML = "Marche";
             status = "stopped";
         }
     }
