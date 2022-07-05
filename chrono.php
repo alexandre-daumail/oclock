@@ -40,12 +40,12 @@
             </div>
 
             <div class="buttons">
-                <button type="button" id="startBtn">Start</button>
+                <button type="button" id="startBtn">Marche</button>
                 <button type="button" id="resetBtn">Reset</button>
-                <button type="button" id="lapBtn">Lap</button>
+                <button type="button" id="lapBtn">Tour</button>
             </div>
 
-            <h1>Laps:</h1>
+            <h1>Temps :</h1>
 
             <div id="laps">
                 <p id="lapRecord"></p>
