@@ -35,11 +35,15 @@
     <main>
         <h1>Minuteur</h1>
 
+        <form action="">
+            <fieldset>
+                <legend>Veuillez entrer </legend>
+
+                <input type="number">
+            </fieldset>
+        </form>
+
         <div id="clockdiv">
-            <div>
-                <span class="days" id="day"></span>
-                <div class="smalltext">Jours</div>
-            </div>
             <div>
                 <span class="hours" id="hour"></span>
                 <div class="smalltext">Heures</div>
