@@ -38,11 +38,11 @@
         <div id="clockdiv">
             <div>
                 <span class="days" id="day"></span>
-                <div class="smalltext">Days</div>
+                <div class="smalltext">Jours</div>
             </div>
             <div>
                 <span class="hours" id="hour"></span>
-                <div class="smalltext">Hours</div>
+                <div class="smalltext">Heures</div>
             </div>
             <div>
                 <span class="minutes" id="minute"></span>
@@ -50,7 +50,7 @@
             </div>
             <div>
                 <span class="seconds" id="second"></span>
-                <div class="smalltext">Seconds</div>
+                <div class="smalltext">Secondes</div>
             </div>
         </div>
 
