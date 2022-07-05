@@ -35,8 +35,7 @@
             <div class="display">
                 <p class="timerDisplay" id="timerHrs">00</p> :
                 <p class="timerDisplay" id="timerMins">00</p> :
-                <p class="timerDisplay" id="timerSec">00</p> :
-                <p class="timerDisplay" id="timerMilisec">00</p>
+                <p class="timerDisplay" id="timerSec">00</p>
             </div>
 
             <div class="buttons">
