@@ -53,10 +53,17 @@
             </div>
 
         </div>
+
+        <div id="timer">
+            <p class="timerDisplay" id="timerHrs">00</p> h 
+            <p class="timerDisplay" id="timerMins">00</p> s 
+            <p class="timerDisplay" id="timerSec">00</p>
+        </div>
+
         <div>
-            <button type="button" name="start">Départ</button>
-            <button type="button" name="pause">Pause</button>
-            <button type="button" name="stop">Arrêt</button>
+            <button type="button" id="start">Départ</button>
+            <button type="button" id="pause">Pause</button>
+            <button type="button" id="stop">Arrêt</button>
         </div>
 
         <p id="alert"></p>
