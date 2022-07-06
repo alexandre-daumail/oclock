@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
     var deadline = new Date("dec 31, 2023 15:37:25").getTime();
 
-    var x = setInterval(even => {
+    var x = setInterval(event => {
     
     var now = new Date().getTime();
     var t = deadline - now;
@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", event => {
     var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((t % (1000 * 60)) / 1000);
 
-    document.getElementById("hour").innerHTML =hours;
+    document.getElementById("hour").innerHTML = hours;
     document.getElementById("minute").innerHTML = minutes;
-    document.getElementById("second").innerHTML =seconds;
+    document.getElementById("second").innerHTML = seconds;
 
     if (t < 0) {
 
@@ -26,4 +26,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
     }
     }, 1000);
+
+    
 });

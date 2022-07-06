@@ -70,7 +70,7 @@ ul {
     background: #00BF96;
     display: inline-block;
   }
-  #clockdiv div > span{
+  #clockdiv div > input{
     padding: 15px;
     border-radius: 3px;
     background: #00816A;

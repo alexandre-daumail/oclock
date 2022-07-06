@@ -35,27 +35,28 @@
     <main>
         <h1>Minuteur</h1>
 
-        <form action="">
-            <fieldset>
-                <legend>Veuillez entrer </legend>
-
-                <input type="number">
-            </fieldset>
-        </form>
-
         <div id="clockdiv">
             <div>
+                <input class="hours" id="hour" type="number" min="0" max="23" />
                 <span class="hours" id="hour"></span>
                 <div class="smalltext">Heures</div>
             </div>
             <div>
-                <span class="minutes" id="minute"></span>
+                <input class="minutes" id="minute" type="number" min="0" max="59" />
+                <span class="hours" id="minute"></span>
                 <div class="smalltext">Minutes</div>
             </div>
             <div>
-                <span class="seconds" id="second"></span>
+                <input class="seconds" id="second" type="number" min="0" max="59" />
+                <span class="hours" id="second"></span>
                 <div class="smalltext">Secondes</div>
             </div>
+
+        </div>
+        <div>
+            <button type="button" name="start">Départ</button>
+            <button type="button" name="pause">Pause</button>
+            <button type="button" name="stop">Arrêt</button>
         </div>
 
         <p id="alert"></p>

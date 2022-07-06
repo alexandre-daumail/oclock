@@ -20,6 +20,7 @@
 </head>
 
 <body>
+
     <header>
         <nav>
             <ul>
@@ -30,7 +31,57 @@
             </ul>
         </nav>
     </header>
-    <div class="clock" id="myClock"></div>
+
+    <main>
+        <div class="container">
+            <h1>Heure actuelle :</h1>
+            <div class="time" id="myClock"></div>
+        </div>
+        <div class="container">
+            <h1>Vos alarmes :</h1>
+        </div>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn"><i class="fa fa-plus-square-o" style="font-size:36px;"></i></button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <h1>Ajouter une alarme</h1>
+
+
+                <div id="clockdiv">
+                    <div>
+                        <input class="hours" id="hour" type="number" min="0" max="23" />
+                        <span class="hours" id="hour"></span>
+                        <div class="smalltext">Heures</div>
+                    </div>
+                    <div>
+                        <input class="minutes" id="minute" type="number" min="0" max="59" />
+                        <span class="hours" id="minute"></span>
+                        <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                        <input type="text" name="title" placeholder="Entrez un titre"/>
+                    </div>
+
+                </div>
+                
+                <div>
+                    <button type="button" name="add">Ajouter</button>
+                    <button type="button" name="cancel">Annuler</button>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+
 </body>
 
 </html>
