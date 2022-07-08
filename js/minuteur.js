@@ -8,62 +8,57 @@ document.addEventListener("DOMContentLoaded", () => {
     let clock = document.getElementById("clockdiv");
 
     start.addEventListener("click", () => {
-console.log("go");
-        var hours = document.getElementById("hour-input").value;
-        var minutes = document.getElementById("minute-input").value;
-        var seconds = document.getElementById("second-input").value;
+
+        let hours = document.getElementById("hour-input").value;
+        let minutes = document.getElementById("minute-input").value;
+        let seconds = document.getElementById("second-input").value;
+
+        clock.style.display = "none";
+        start.style.display = "none";
+        stop.style.display = "inline-block";
+        timer.style.display = "flex";
+
+        let countdown = (+hours * 3600) + (+minutes * 60) + +seconds;
+
+        function countdownTimer() {
 
 
-            var countdown = hours * 3600 + minutes * 60 + seconds;
+            let remaining = "Temps écoulé";
 
-            var x = setInterval(() => {
-                
-                if (countdown >= 60) {
+            if (countdown > 0) {
 
-                    if (countdown > 3600) {
-                        hours = Math.floor(countdown / 3600);
-                        minutes = Math.floor(countdown / 60);
-                        seconds = Math.floor(countdown % 60);
+                const parts = {
 
-                        document.getElementById("timerDisplay").innerHTML = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                    } else {
-                        minutes = Math.floor(countdown / 60);
-                        seconds = Math.floor(countdown % 60);
+                    heures: Math.floor((countdown / (60 * 60)) % 24),
+                    minutes: Math.floor((countdown / 60) % 60),
+                    secondes: Math.floor(countdown % 60),
 
-                        document.getElementById("timerDisplay").innerHTML = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                    }
+                };
 
-                } else {
-                    console.log(countdown);
-                    seconds = Math.floor(countdown % 60);
+                remaining = Object.keys(parts).map(part => {
+                    if (!parts[part]) return '00 ' + `${part}`;
+                    return `${parts[part]}  ${part}`;
+                }).join(" ");
 
-                    document.getElementById("timerDisplay").innerHTML = `00 : 00 : ${seconds < 10 ? '0' : ''}${seconds}`;
+            }
 
-                    clock.style.display = "none";
-                    start.style.display = "none";
-                    stop.style.display = "inline-block";
-                    timer.style.display = "flex";
+            document.getElementById("timerDisplay").innerHTML = remaining;
+            countdown--;
+
+        }
+
+        countdownTimer()
         
+        const time = setInterval(countdownTimer, 1000);
 
-                    if (countdown == 0) {
-
-                        clearInterval(x);
-                        document.getElementById("alert").innerHTML = "le temps est écoulé";
-                        clock.style.display = "inline-block";
-                        start.style.display = "inline-block";
-                        stop.style.display = "none";
-                        
-
-                    }
-
-                    countdown--;
-
-                }
-
-            }, 1000);
-
-
+        stop.addEventListener("click", () => {
+            clearInterval(time);
+            clock.style.display = "inline-block";
+            start.style.display = "inline-block";
+            stop.style.display = "none";
+            timer.style.display = "none";
+    
+        })
     })
-
 
 });

@@ -25,7 +25,7 @@
         <nav>
             <ul>
                 <li><a href="index.php">Horloge</a></li>
-                <li><a class="active" href="#">Minuteur</a></li>
+                <li><a class="active" href="minuteur.php">Minuteur</a></li>
                 <li><a href="reveil.php">Réveil</a></li>
                 <li><a href="chrono.php">Chronomètre</a></li>
             </ul>
@@ -58,10 +58,8 @@
             <p id="timerDisplay"></p>
         </div>
 
-        <div>
             <button type="button" id="start">Départ</button>
             <button type="button" id="stop">Arrêt</button>
-        </div>
 
         <p id="alert"></p>
     </main>
