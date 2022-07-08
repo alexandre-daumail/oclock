@@ -3,46 +3,64 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     let start = document.getElementById("start");
+    let stop = document.getElementById("stop");
     let timer = document.getElementById("timer");
     let clock = document.getElementById("clockdiv");
-    let status = "down";
 
     start.addEventListener("click", () => {
+console.log("go");
+        var hours = document.getElementById("hour-input").value;
+        var minutes = document.getElementById("minute-input").value;
+        var seconds = document.getElementById("second-input").value;
 
-        if (status === "down") {
 
-            status = "up";
-            clock.style.display = "none";
-            timer.style.display = "flex";
-
-            var deadline = new Date("dec 31, 2023 15:37:25").getTime();
+            var countdown = hours * 3600 + minutes * 60 + seconds;
 
             var x = setInterval(() => {
-                var now = new Date().getTime();
-                var t = deadline - now;
-                var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((t % (1000 * 60)) / 1000);
+                
+                if (countdown >= 60) {
 
-                document.getElementById("timerHrs").innerHTML = hours;
-                document.getElementById("timerMins").innerHTML = minutes;
-                document.getElementById("timerSec").innerHTML = seconds;
+                    if (countdown > 3600) {
+                        hours = Math.floor(countdown / 3600);
+                        minutes = Math.floor(countdown / 60);
+                        seconds = Math.floor(countdown % 60);
 
-                if (t < 0) {
+                        document.getElementById("timerDisplay").innerHTML = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                    } else {
+                        minutes = Math.floor(countdown / 60);
+                        seconds = Math.floor(countdown % 60);
 
-                    clearInterval(x);
-                    document.getElementById("alert").innerHTML = "le temps est écoulé";
-                    document.getElementById("hour").innerHTML = '0';
-                    document.getElementById("minute").innerHTML = '0';
-                    document.getElementById("second").innerHTML = '0';
-                    clock.style.display = "inline-block";
-                    status = "down";
+                        document.getElementById("timerDisplay").innerHTML = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                    }
+
+                } else {
+                    console.log(countdown);
+                    seconds = Math.floor(countdown % 60);
+
+                    document.getElementById("timerDisplay").innerHTML = `00 : 00 : ${seconds < 10 ? '0' : ''}${seconds}`;
+
+                    clock.style.display = "none";
+                    start.style.display = "none";
+                    stop.style.display = "inline-block";
+                    timer.style.display = "flex";
+        
+
+                    if (countdown == 0) {
+
+                        clearInterval(x);
+                        document.getElementById("alert").innerHTML = "le temps est écoulé";
+                        clock.style.display = "inline-block";
+                        start.style.display = "inline-block";
+                        stop.style.display = "none";
+                        
+
+                    }
+
+                    countdown--;
 
                 }
 
             }, 1000);
-
-        }
 
 
     })

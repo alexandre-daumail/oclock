@@ -37,17 +37,17 @@
 
         <div id="clockdiv">
             <div>
-                <input class="hours" id="hour" type="number" min="0" max="23" />
+                <input class="hours" id="hour-input" type="number" min="0" max="23" />
                 <span class="hours" id="hour"></span>
                 <div class="smalltext">Heures</div>
             </div>
             <div>
-                <input class="minutes" id="minute" type="number" min="0" max="59" />
+                <input class="minutes" id="minute-input" type="number" min="0" max="59" />
                 <span class="hours" id="minute"></span>
                 <div class="smalltext">Minutes</div>
             </div>
             <div>
-                <input class="seconds" id="second" type="number" min="0" max="59" />
+                <input class="seconds" id="second-input" type="number" min="0" max="59" />
                 <span class="hours" id="second"></span>
                 <div class="smalltext">Secondes</div>
             </div>
@@ -55,14 +55,11 @@
         </div>
 
         <div id="timer">
-            <p class="timerDisplay" id="timerHrs">00</p> h 
-            <p class="timerDisplay" id="timerMins">00</p> s 
-            <p class="timerDisplay" id="timerSec">00</p>
+            <p id="timerDisplay"></p>
         </div>
 
         <div>
             <button type="button" id="start">Départ</button>
-            <button type="button" id="pause">Pause</button>
             <button type="button" id="stop">Arrêt</button>
         </div>
 
