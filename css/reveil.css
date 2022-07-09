@@ -1,5 +1,5 @@
 :root {
-    --primary: #DC143C;
+    --primary: #04AA6D;
     --dark: #1F2937;
     --darkdark: #111827;
     --light: #F3F4F6;
@@ -37,7 +37,7 @@ nav a:hover {
 }
 
 nav a.active {
-    background-color: #04AA6D;
+    background-color: var(--primary);
     color: white;
 }
 
@@ -80,7 +80,7 @@ ul {
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: var(--primary);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -100,4 +100,8 @@ ul {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  button {
+    margin: 0 auto;
   }

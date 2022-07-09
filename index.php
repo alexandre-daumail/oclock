@@ -34,6 +34,7 @@
         <h1>Paris (UTC + 1) :</h1>
         <div class="time" id="myClock"></div>
     </div>
+
 </body>
 
 </html>

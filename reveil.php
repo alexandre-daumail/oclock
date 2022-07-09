@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/reveil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     <!-- JS script link -->
     <script type="text/javascript" src="js/reveil.js"></script>
 
@@ -37,8 +38,28 @@
             <h1>Heure actuelle :</h1>
             <div class="time" id="myClock"></div>
         </div>
+
+
         <div class="container">
+
             <h1>Vos alarmes :</h1>
+
+            <table id="table" style="border: 1px solid black; width: 100%;">
+
+                <thead>
+                    <tr>
+                        <td>Alarme</td>
+                        <td>Message</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+
+                <tbody id="alarmTable">
+
+                </tbody>
+
+            </table>
+
         </div>
 
         <!-- Trigger/Open The Modal -->
@@ -56,25 +77,20 @@
 
                 <div id="clockdiv">
                     <div>
-                        <input class="hours" id="hour" type="number" min="0" max="23" />
-                        <span class="hours" id="hour"></span>
-                        <div class="smalltext">Heures</div>
+                        <input type="time" id="setAlarm" />
                     </div>
                     <div>
-                        <input class="minutes" id="minute" type="number" min="0" max="59" />
-                        <span class="hours" id="minute"></span>
-                        <div class="smalltext">Minutes</div>
-                    </div>
-                    <div>
-                        <input type="text" name="title" placeholder="Entrez un titre"/>
+                        <input type="text" id="setTitle" placeholder="Entrez un titre" />
                     </div>
 
                 </div>
-                
+
                 <div>
-                    <button type="button" name="add">Ajouter</button>
-                    <button type="button" name="cancel">Annuler</button>
+                    <button type="button" id="add">Ajouter</button>
+                    <button type="button" id="cancel">Annuler</button>
                 </div>
+
+
 
             </div>
 

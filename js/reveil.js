@@ -20,9 +20,6 @@ document.addEventListener("DOMContentLoaded", event => {
         let time = hours + ":" + minutes + ":" + seconds;
 
         document.getElementById("myClock").innerText = time;
-        console.log(time);
-
-        // document.getElementById("myClock").textContent = time;
 
         setTimeout(viewTime, 1000);
 
@@ -55,4 +52,55 @@ document.addEventListener("DOMContentLoaded", event => {
             modal.style.display = "none";
         }
     }
+    let add = document.getElementById("add");
+
+    add.addEventListener("click", () => {
+
+
+        let alarm = document.getElementById('setAlarm').value;
+        let title = document.getElementById('setTitle').value;
+        let now = new Date();
+        let array = [];
+
+        let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), alarm[0] + alarm[1], alarm[3] + alarm[4], '00');
+
+        let x = target - now;
+        let y = x / 1000;
+
+        let status = Math.round(y);
+
+        if (now.length != 0 && title.length != 0) {
+
+            modal.style.display = "none";
+
+            array.push([alarm, title, status]);
+        } else {
+            alert("Remplissez une heure et un message pour pouvoir utiliser l'alarme.")
+        }
+
+        setInterval(() => {
+
+            // Display table 
+            let table = document.getElementById('alarmTable');
+
+            for (let value in array) {
+
+                if (status > 0) {
+                    status--;
+                    var show = status + "s restantes";
+                } else {
+                    status = "passé";
+                    var show = status;
+                }
+
+                table.append = '<tr><td>' + alarm + '</td><td>' + title + '</td><td>' + show + '</td></tr>';
+                
+            };
+        }, 1000);
+
+
+
+
+
+    })
 });
