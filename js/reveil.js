@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", event => {
                     var show = status;
                 }
 
-                table.append = '<tr><td>' + alarm + '</td><td>' + title + '</td><td>' + show + '</td></tr>';
+                table.innerHTML = '<tr><td>' + alarm + '</td><td>' + title + '</td><td>' + show + '</td></tr>';
                 
             };
         }, 1000);

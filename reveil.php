@@ -27,7 +27,7 @@
             <ul>
                 <li><a href="index.php">Horloge</a></li>
                 <li><a href="minuteur.php">Minuteur</a></li>
-                <li><a class="active" href="#">Réveil</a></li>
+                <li><a class="active" href="reveil.php">Réveil</a></li>
                 <li><a href="chrono.php">Chronomètre</a></li>
             </ul>
         </nav>
