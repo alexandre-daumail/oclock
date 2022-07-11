@@ -53,14 +53,18 @@ document.addEventListener("DOMContentLoaded", event => {
         }
     }
     let add = document.getElementById("add");
+    let array = [];
 
     add.addEventListener("click", () => {
 
 
         let alarm = document.getElementById('setAlarm').value;
         let title = document.getElementById('setTitle').value;
+
+        // Display table 
+        let tbody = document.querySelector('tbody');
+
         let now = new Date();
-        let array = [];
 
         let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), alarm[0] + alarm[1], alarm[3] + alarm[4], '00');
 
@@ -74,29 +78,56 @@ document.addEventListener("DOMContentLoaded", event => {
             modal.style.display = "none";
 
             array.push([alarm, title, status]);
+
+            let row = document.createElement("tr");
+
+            row.innerHTML = '<td>' + alarm + '</td><td>' + title + '</td><td id = "' + title + '">' + status + 's restantes</td>'
+
+            tbody.appendChild(row);
+
         } else {
-            alert("Remplissez une heure et un message pour pouvoir utiliser l'alarme.")
+
+            alert("Remplissez une heure et un message pour pouvoir utiliser l'alarme.");
+
         }
 
-        setInterval(() => {
 
-            // Display table 
-            let table = document.getElementById('alarmTable');
+            setInterval(() => {
+        array.forEach(element => {
 
-            for (let value in array) {
+        let state = document.getElementById(title)
+        let remaining = "Temps écoulé";
 
                 if (status > 0) {
                     status--;
-                    var show = status + "s restantes";
-                } else {
-                    status = "passé";
-                    var show = status;
-                }
 
-                table.innerHTML = '<tr><td>' + alarm + '</td><td>' + title + '</td><td>' + show + '</td></tr>';
-                
-            };
-        }, 1000);
+                    const parts = {
+
+                        heures: Math.floor((status / (60 * 60)) % 24),
+                        minutes: Math.floor((status / 60) % 60),
+                        secondes: Math.floor(status % 60),
+    
+                    };
+    
+                    remaining = Object.keys(parts).map(part => {
+                        if (!parts[part]) return '';
+                        return `${parts[part]}  ${part}`;
+                    }).join(" ") + " restantes";
+
+                    state.innerHTML = remaining;
+
+
+                } else {
+
+                    state.innerHTML = 'passé';
+
+                }
+        });
+
+            }, 1000);
+
+
+
 
 
 
